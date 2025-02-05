@@ -22,10 +22,10 @@ crime_data_cleaned <- crime_data_cleaned %>%
   mutate(Day = lubridate::day(DATE.OCC))
 
 crime_data_cleaned <- crime_data_cleaned %>%
-  mutate(TIME.OCC = sprintf("%04d", TIME.OCC))  # Ensure 4-digit format (e.g., "4" -> "0004")
+  mutate(TIME.OCC = sprintf("%04d", TIME.OCC))  # Ensure 4-digit format
 
 crime_data_cleaned <- crime_data_cleaned %>%
-  mutate(HOUR = paste0(substr(TIME.OCC, 1, 2),':',substr(TIME.OCC, 3, 4)))# get the first 2 digits (Hour), get the last 2 digits (Minutes)
+  mutate(HOUR = paste0(substr(TIME.OCC, 1, 2),':',substr(TIME.OCC, 3, 4))) # get the first 2 digits (Hour), get the last 2 digits (Minutes)
 
 # --4
 c_2023_burg <- crime_data_cleaned %>%
